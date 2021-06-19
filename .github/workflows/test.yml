@@ -17,7 +17,7 @@ jobs:
       - shell: bash
         env:
           NGROK_AUTHTOKEN: ${{ secrets.NGROK }}
-        run: ./ngrok authtoken "$NGROK_AUTHTOKEN" && cat .ngrok2/ngrok.yml
+        run: ./ngrok authtoken "$NGROK_AUTHTOKEN" && cat /home/runner/.ngrok2/ngrok.yml
       - run: ./ngrok tcp 22
       - run: curl -s http://localhost:4040/api/tunnels | python3 -c "import sys, json; print(json.load(sys.stdin)['tunnels'][0]['public_url'])"
       - run: sleep 21000
