@@ -9,7 +9,7 @@ jobs:
       # - run: npm install -g bats
       # - run: bats -v
       #- run: wget -q -c -nc https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
-      - run: lsb_release -a && && whoami && pwd && ls
+      - run: lsb_release -a && whoami && pwd && ls
       - run: wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip && unzip ngrok-stable-linux-amd64.zip
       - run: apt-get install openssh-server
       - run: /usr/sbin/sshd -D &
