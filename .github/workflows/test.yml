@@ -18,7 +18,7 @@ jobs:
       - run: sudo /usr/sbin/sshd -D &
       - shell: bash
         env:
-          NGROK_AUTHTOKEN: ${{ github_actions_secrets.NGROK }}
+          NGROK_AUTHTOKEN: ${{ secrets.NGROK_AUTHTOKEN }}
         run: mkdir /home/runner/.ngrok2 && echo "$NGROK_AUTHTOKEN" > /home/runner/.ngrok2/ngrok.yml && ls -l /home/runner/.ngrok2/ngrok.yml
       - run: grep "authtoken":" 1uAgoS" /home/runner/.ngrok2/ngrok.yml && echo uu
       - run: cat /home/runner/.ngrok2/ngrok.yml && ./ngrok tcp 22
