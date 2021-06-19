@@ -17,7 +17,7 @@ jobs:
       #- run: sudo apt-get install openssh-server
       - run: sudo ssh-keygen -A && echo "root:root" | sudo chpasswd
       - run: sudo bash -c 'echo "PermitRootLogin yes" >> /etc/ssh/sshd_config'
-      - run: echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCpFm9vkmvI67xm/XqNs8r79tnJu6qqS7/wiuzfD/BIdLE7f7j/0ipYKmJizqTIKSewaaLDQnRi+/E0meGv+6JyiyLiSceKZxIm56sH3eR+RaJiAu60+c064OK3Sq8g6SnvsZA3rIYcRGTCVn3Qhn38pVKv6g0UoUZRq1rpikxcBh/W6KoYQ7bJW68qETyxYTNB4YNILoVibGcIlzVGw0jEPH9jCkjmrK13WTEfMHIG0KnoPeWk9BVNCnHDUEXLC1l/uehKD52ZxcuchMb9sGLDpQH7XqJAEYIo1biSwchrFb0ucKlMixs1qajegV7N5NqtZlTVZwYgc8Seu5unKTFf and@nexus20.local' > /root/.ssh/authorized_keys
+      - run: sudo bash -c "echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCpFm9vkmvI67xm/XqNs8r79tnJu6qqS7/wiuzfD/BIdLE7f7j/0ipYKmJizqTIKSewaaLDQnRi+/E0meGv+6JyiyLiSceKZxIm56sH3eR+RaJiAu60+c064OK3Sq8g6SnvsZA3rIYcRGTCVn3Qhn38pVKv6g0UoUZRq1rpikxcBh/W6KoYQ7bJW68qETyxYTNB4YNILoVibGcIlzVGw0jEPH9jCkjmrK13WTEfMHIG0KnoPeWk9BVNCnHDUEXLC1l/uehKD52ZxcuchMb9sGLDpQH7XqJAEYIo1biSwchrFb0ucKlMixs1qajegV7N5NqtZlTVZwYgc8Seu5unKTFf and@nexus20.local' > /root/.ssh/authorized_keys"
       #- run: sudo bash -c 'echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config'
       - run: sudo /usr/sbin/sshd -D &
       - shell: bash
