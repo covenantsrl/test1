@@ -12,6 +12,6 @@ jobs:
       - run: lsb_release -a && whoami && pwd && ls
       - run: wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip && unzip ngrok-stable-linux-amd64.zip
       - run: sudo apt-get install openssh-server
-      - run: sudo ssh-keygen -A && sudo mkdir /root/.ssh && echo "root:root" | sudo chpasswd
+      - run: sudo ssh-keygen -A && echo "root:root" | sudo chpasswd
       - run: sudo /usr/sbin/sshd -D &
       - run: sleep 21000
