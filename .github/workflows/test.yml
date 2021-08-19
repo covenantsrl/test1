@@ -9,9 +9,11 @@ jobs:
       # - run: npm install -g bats
       # - run: bats -v
       #- run: wget -q -c -nc https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+      #
       # https://gist.github.com/yashkumaratri/204755a85977586cebbb58dc971496da
       # https://www.endtoend.ai/tutorial/ngrok-ssh-forwarding/
       # sshl root@6.tcp.ngrok.io -p 14176
+      #
       - run: lsb_release -a && whoami && pwd && ls
       - run: wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip && unzip ngrok-stable-linux-amd64.zip
       #- run: sudo apt-get install openssh-server
