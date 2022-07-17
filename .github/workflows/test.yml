@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # - uses: actions/checkout@v2
-      # - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v1
       # - run: npm install -g bats
       # - run: bats -v
       #- run: wget -q -c -nc https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
@@ -20,6 +20,7 @@ jobs:
       # sshl root@6.tcp.ngrok.io -p 14176
       #
       - run: lsb_release -a && whoami && pwd && ls -la
+      - run: npm install
       - run: wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip && unzip ngrok-stable-linux-amd64.zip
       #- run: sudo apt-get install openssh-server
       - run: sudo ssh-keygen -A && echo "root:root" | sudo chpasswd
@@ -32,5 +33,5 @@ jobs:
           NGROK_AUTHTOKEN: ${{ secrets.NGROK_AUTHTOKEN }}
         run: mkdir /home/runner/.ngrok2 && echo "$NGROK_AUTHTOKEN" > /home/runner/.ngrok2/ngrok.yml && ls -l /home/runner/.ngrok2/ngrok.yml
       - run: ./ngrok tcp 22 &
-      - run: curl -s http://localhost:4040/api/tunnels | python3 -c "import sys, json; print(json.load(sys.stdin)['tunnels'][0]['public_url'])"
+      - run: curl -s http://localhost:4040/api/tunnels | python3 -c "import sys, json; print(json.load(sys.stdin)['tunnels'][0]['public_url'])" | TELEGRAM_TOK=${{ secrets.TELEGRAM_TOK }} node telegram.js
       - run: sleep 21000
