@@ -1,5 +1,10 @@
 name: test
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+    inputs:
+      input1:
+        description: 'test input'
+        default: ''
 jobs:
   job1:
     runs-on: ubuntu-latest
